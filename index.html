@@ -10,14 +10,15 @@
 
 <body>
     <div id="app">
+
         <h1>My List</h1>
 
         <input @keyup.enter="addTask()" type="text" v-model.trim="newTask.text" placeholder="Scrivi qui">
-        <!-- <small>{{error}}</small> -->
+        <small>{{error}}</small>
         <button  @click="addTask()">Registra</button>
 
         <ul v-for="(todo, index) in tasks" v-if="tasks.length > 0">
-            <li v-if="!todo.done" :style="style" @click="check(todo)">{{todo.text}}
+            <li v-if="todo.done" :style="style" @click="check(todo)">{{todo.text}}
                 <i @click="remove(index)"  class="fa-solid fa-square-xmark"></i>
             </li>
             <li v-else @click="check(todo)">
@@ -26,7 +27,7 @@
             </li>
 
         </ul>
-        
+
         <p v-else>A quanto pare non hai altro da fare oggi, bravo!</p>
 
 

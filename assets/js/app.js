@@ -23,22 +23,21 @@ createApp({
                 },
             ],
             style: `text-decoration: line-through`,
-            // error: null,
+            error: null,
         }
     },
     methods: {
-        task(text, done) {
-            text = this.newTask.text;
-            done = false;
-        },
 
         addTask() {
+            const newTodo = { text: this.newTask.text, done: false }
 
-            console.log(this.newTask.text);
-            this.newTask.text = '';
-
-            // const newTodo = new this.task(this.newTask.text, false);
-            // this.tasks.unshift(newTodo)
+            if (this.newTask.text.length < 3) {
+                this.error = "Specifica almeno 4 caratteri!"
+                this.newTask.text = '';
+            } else {
+                this.tasks.unshift(newTodo);
+                this.newTask.text = '';
+            }
 
 
         },
@@ -49,10 +48,10 @@ createApp({
         },
 
         check(todo) {
-            // console.log(todo.done);
             todo.done = !todo.done;
 
         },
 
-    }
+    },
+
 }).mount('#app')

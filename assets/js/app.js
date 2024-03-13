@@ -27,39 +27,29 @@ createApp({
         }
     },
     methods: {
-        addTask() {
-            // if (this.newTask.text.length > 3) {
-            //     
-            //     
-            //     this.error = '';
+        task(text, done) {
+            text = this.newTask.text;
+            done = false;
+        },
 
-            // } else {
-            //     this.error = 'Attenzione! Devi inserire almeno 4 caratteri.'
-            //     this.newTask = '';
-            // }
+        addTask() {
 
             console.log(this.newTask.text);
-
-            this.tasks.unshift(this.newTask.text, false);
             this.newTask.text = '';
 
-            // function task(text, done) {
-            //     this.text = this.newTask.text;
-            //     this.done = false;
-            // }
-
-            // const newTodo = new task(this.newTask.text, false);
+            // const newTodo = new this.task(this.newTask.text, false);
             // this.tasks.unshift(newTodo)
 
 
         },
 
         remove(taskId) {
-            this.tasks.splice(taskId, 1)
+            this.tasks.splice(taskId, 1);
+
         },
 
         check(todo) {
-            console.log(todo.done);
+            // console.log(todo.done);
             todo.done = !todo.done;
 
         },

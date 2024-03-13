@@ -17,12 +17,12 @@
         <button @click="addTask()">Registra</button>
 
         <ul v-for="(todo, index) in tasks">
-            <li v-if="!todo.done" :style="style">{{todo.text}}
-                <i @click="remove(index)" class="fa-solid fa-square-xmark"></i>
+            <li v-if="!todo.done" :style="style" @click="check(todo)">{{todo.text}}
+                <i @click="remove(index)"  class="fa-solid fa-square-xmark"></i>
             </li>
-            <li v-else>
+            <li v-else @click="check(todo)">
                 {{todo.text}}
-                <i @click="remove(index)" class="fa-solid fa-square-xmark"></i>
+                <i @click="remove(index)"  class="fa-solid fa-square-xmark"></i>
             </li>
 
         </ul>

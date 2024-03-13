@@ -29,8 +29,8 @@ createApp({
     methods: {
         addTask() {
             // if (this.newTask.text.length > 3) {
-            //     this.tasks.unshift(this.newTask.text);
-            //     this.newTask.text = '';
+            //     
+            //     
             //     this.error = '';
 
             // } else {
@@ -39,21 +39,30 @@ createApp({
             // }
 
             console.log(this.newTask.text);
-            
-            function Task(text, done) {
-                this.text = this.newTask.text;
-                this.done = false;
-            }
 
-            const newTodo = new Task(this.newTask.text, false);
+            this.tasks.unshift(this.newTask.text, false);
+            this.newTask.text = '';
+
+            // function task(text, done) {
+            //     this.text = this.newTask.text;
+            //     this.done = false;
+            // }
+
+            // const newTodo = new task(this.newTask.text, false);
+            // this.tasks.unshift(newTodo)
 
 
         },
 
         remove(taskId) {
             this.tasks.splice(taskId, 1)
-        }
+        },
 
+        check(todo) {
+            console.log(todo.done);
+            todo.done = !todo.done;
+
+        },
 
     }
 }).mount('#app')

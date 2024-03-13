@@ -12,16 +12,17 @@
     <div id="app">
         <h1>My List</h1>
 
-        <input type="text" v-model.trim="newTask.text" placeholder="Scrivi qui">
+        <!-- <input type="text" v-model.trim="newTask.text" placeholder="Scrivi qui">
         <small>{{error}}</small>
-        <button @click="addTask()">Registra</button>
+        <button @click="addTask()">Registra</button> -->
 
         <ul v-for="(todo, index) in tasks">
             <li v-if="!todo.done" :style="style">{{todo.text}}
-                <!-- <i @click="remove(index)" class="fa-solid fa-square-xmark"></i> -->
+                <i @click="remove(index)" class="fa-solid fa-square-xmark"></i>
             </li>
             <li v-else>
                 {{todo.text}}
+                <i @click="remove(index)" class="fa-solid fa-square-xmark"></i>
             </li>
 
         </ul>

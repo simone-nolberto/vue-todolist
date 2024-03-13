@@ -38,9 +38,9 @@ createApp({
         //         this.newTask = '';
         //     }
         // },
-        // remove(taskId) {
-        //     this.tasks.splice(taskId, 1)
-        // }
+        remove(taskId) {
+            this.tasks.splice(taskId, 1)
+        }
 
 
     }

@@ -16,7 +16,7 @@
         <!-- <small>{{error}}</small> -->
         <button  @click="addTask()">Registra</button>
 
-        <ul v-for="(todo, index) in tasks">
+        <ul v-for="(todo, index) in tasks" v-if="tasks.length > 0">
             <li v-if="!todo.done" :style="style" @click="check(todo)">{{todo.text}}
                 <i @click="remove(index)"  class="fa-solid fa-square-xmark"></i>
             </li>
@@ -26,9 +26,8 @@
             </li>
 
         </ul>
-
-        <!-- <ul v-if="tasks.length > 0"></ul> -->
-        <!-- <p v-else>A quanto pare non hai altro da fare oggi, bravo!</p> -->
+        
+        <p v-else>A quanto pare non hai altro da fare oggi, bravo!</p>
 
 
     </div>

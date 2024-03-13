@@ -23,21 +23,33 @@ createApp({
                 },
             ],
             style: `text-decoration: line-through`,
-            error: null,
+            // error: null,
         }
     },
     methods: {
-        // addTask() {
-        //     if (this.newTask.text.length > 3) {
-        //         this.tasks.unshift(this.newTask.text);
-        //         this.newTask.text = '';
-        //         this.error = '';
+        addTask() {
+            // if (this.newTask.text.length > 3) {
+            //     this.tasks.unshift(this.newTask.text);
+            //     this.newTask.text = '';
+            //     this.error = '';
 
-        //     } else {
-        //         this.error = 'Attenzione! Devi inserire almeno 4 caratteri.'
-        //         this.newTask = '';
-        //     }
-        // },
+            // } else {
+            //     this.error = 'Attenzione! Devi inserire almeno 4 caratteri.'
+            //     this.newTask = '';
+            // }
+
+            console.log(this.newTask.text);
+            
+            function Task(text, done) {
+                this.text = this.newTask.text;
+                this.done = false;
+            }
+
+            const newTodo = new Task(this.newTask.text, false);
+
+
+        },
+
         remove(taskId) {
             this.tasks.splice(taskId, 1)
         }
